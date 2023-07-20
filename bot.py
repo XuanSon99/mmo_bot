@@ -39,7 +39,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
         if "uy tín" in update.message.text:
 
-            requests.post(f"{domain}/api/add-user",{'username': username})
+            requests.post(f"{domain}/api/add-user",{'username': f"@{username}"})
 
             reply_markup = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text='VOTE UY TÍN', callback_data='vote')]],
@@ -57,7 +57,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             try:
                 res = requests.get(f"{domain}/api/votings/@{username}")
                 last_msg_id = res.json()["msg_id"]
-                await context.bot.delete_message(message_id=last_msg_id, chat_id='-1001871429218')
+                await context.bot.delete_message(message_id=last_msg_id, chat_id='-654706459')
 
                 requests.post(f"{domain}/api/voting", {'username': f'@{username}','start_time': start_time, 'msg_id':  msg.message_id})
             except:
@@ -144,7 +144,7 @@ def content(page):
     text = "<b>🔥 Xếp hạng uy tín 🔥</b>\n\n<i>Xếp hạng dựa theo số lần giao dịch thành công</i>\n"
 
     for index, item in enumerate(res.json()['data']):
-        text += f"- @{item['username']} ({item['transaction']} lần)"
+        text += f"- {item['username']} ({item['transaction']} lần)"
         if item['reputation'] == 'yes':
             text += " - Uy tín 💎\n"
         else:
