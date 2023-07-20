@@ -12,7 +12,7 @@ import pytz
 kyc = "👨‍💻 Xác minh KYC"
 uytin = "💎 DS Uy tín"
 
-domain = "https://xuanson.shop"
+domain = "https://chousd.com"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     buttons = [[KeyboardButton(uytin)]]
@@ -141,7 +141,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 def content(page):
     res = requests.get(f"{domain}/api/get-top?page={page}")
 
-    text = "<b>🔥 Xếp hạng uy tín 🔥</b>\n\n<i>Xếp hạng dựa theo số lần giao dịch thành công</i>\n"
+    text = "<b>🔥 Xếp hạng uy tín 🔥</b>\n\n<i>Xếp hạng dựa theo số lần xin uy tín thành công</i>\n"
 
     for index, item in enumerate(res.json()['data']):
         text += f"- {item['username']} ({item['transaction']} lần)"
