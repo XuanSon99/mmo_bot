@@ -57,7 +57,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             try:
                 res = requests.get(f"{domain}/api/votings/@{username}")
                 last_msg_id = res.json()["msg_id"]
-                await context.bot.delete_message(message_id=last_msg_id, chat_id='-654706459')
+                await context.bot.delete_message(message_id=last_msg_id, chat_id='-1942672774')
 
                 requests.post(f"{domain}/api/voting", {'username': f'@{username}','start_time': start_time, 'msg_id':  msg.message_id})
             except:
