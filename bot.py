@@ -28,6 +28,8 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     if update.message.chat.type != "private":
 
         if "/uytin" in update.message.text:
+            return
+            
             reply_markup = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text='|<', callback_data='first'),
                   InlineKeyboardButton(text='<', callback_data='prev'),
@@ -39,6 +41,8 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
         if "uy tín" in update.message.text:
 
+            await context.bot.send_message(chat_id, text=text)
+            
             # requests.post(f"{domain}/api/add-user",{'username': f"@{username}"})
 
             reply_markup = InlineKeyboardMarkup(
@@ -82,6 +86,8 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     if "/uytin" in update.message.text or uytin in update.message.text:
 
+        return
+        
         if "@" in update.message.text:
 
             username = update.message.text[8:]
@@ -281,7 +287,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 app = ApplicationBuilder().token(
     "6221060241:AAHk9evaieypMU8SnO-H8YhnuMRVA0UVi8g").build()
 
-app.add_handler(CommandHandler("start", start)) 
+# app.add_handler(CommandHandler("start", start)) 
 app.add_handler(CallbackQueryHandler(button))
 app.add_handler(MessageHandler(filters.ALL, messageHandler))
 
