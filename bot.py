@@ -12,7 +12,7 @@ import pytz
 kyc = "👨‍💻 Xác minh KYC"
 uytin = "💎 DS Uy tín"
 
-domain = "https://chousd.com"
+domain = "https://api.chootc.com"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     buttons = [[KeyboardButton(uytin)]]
@@ -39,7 +39,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
         if "uy tín" in update.message.text:
 
-            requests.post(f"{domain}/api/add-user",{'username': f"@{username}"})
+            # requests.post(f"{domain}/api/add-user",{'username': f"@{username}"})
 
             reply_markup = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text='VOTE UY TÍN', callback_data='vote')]],
