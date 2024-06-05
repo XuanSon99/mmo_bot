@@ -41,8 +41,8 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
         if "uy tín" in update.message.text:
 
-            if chat_id != '-1001845629407':
-                return
+            # if chat_id != '-1001845629407':
+            #     return
             
             # requests.post(f"{domain}/api/add-user",{'username': f"@{username}"})
 
