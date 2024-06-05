@@ -41,7 +41,8 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
         if "uy tín" in update.message.text:
 
-            await context.bot.send_message(chat_id, text=chat_id)
+            if chat_id != '-1001845629407':
+                return
             
             # requests.post(f"{domain}/api/add-user",{'username': f"@{username}"})
 
@@ -61,7 +62,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             try:
                 res = requests.get(f"{domain}/api/votings/@{username}")
                 last_msg_id = res.json()["msg_id"]
-                await context.bot.delete_message(message_id=last_msg_id, chat_id='-4216907215')
+                await context.bot.delete_message(message_id=last_msg_id, chat_id='-1001845629407')
 
                 requests.post(f"{domain}/api/voting", {'username': f'@{username}','start_time': start_time, 'msg_id':  msg.message_id})
             except:
