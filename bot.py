@@ -41,7 +41,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
         if "uy tín" in update.message.text:
 
-            await context.bot.send_message(chat_id, text=text)
+            await context.bot.send_message(chat_id, text=chat_id)
             
             # requests.post(f"{domain}/api/add-user",{'username': f"@{username}"})
 
