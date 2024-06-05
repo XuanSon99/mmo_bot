@@ -39,7 +39,7 @@ async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
             await context.bot.send_message(chat_id, text=content(1), reply_markup=reply_markup, parse_mode=constants.ParseMode.HTML)
 
-        if "uy tín" in update.message.text:
+        if "uy tín" in update.message.text.lower():
 
             # if chat_id != '-1001845629407':
             #     return
