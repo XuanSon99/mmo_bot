@@ -288,7 +288,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 app = ApplicationBuilder().token(
     "7207988442:AAGsmLYoNqyeOWJcpCAauqIHAy_MxdmPTRA").build()
 
-#app.add_handler(CommandHandler("start", start)) 
+app.add_handler(CommandHandler("start", start)) 
 app.add_handler(CallbackQueryHandler(button))
 app.add_handler(MessageHandler(filters.ALL, messageHandler))
 
