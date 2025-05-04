@@ -17,8 +17,8 @@ domain = "https://api.chootc.com"
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     buttons = [[KeyboardButton(uytin)]]
 
-    reply_markup = ReplyKeyboardMarkup(buttons, resize_keyboard=True)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Chào mừng bạn đến với <b>Chợ MMO</b>. Click nút bên dưới để kiểm tra danh sách uy tín.", reply_markup=reply_markup, parse_mode=constants.ParseMode.HTML)
+    #reply_markup = ReplyKeyboardMarkup(buttons, resize_keyboard=True)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Chào mừng bạn đến với <b>Chợ MMO</b>", parse_mode=constants.ParseMode.HTML)
 
 
 async def messageHandler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -288,7 +288,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 app = ApplicationBuilder().token(
     "6221060241:AAHk9evaieypMU8SnO-H8YhnuMRVA0UVi8g").build()
 
-# app.add_handler(CommandHandler("start", start)) 
+app.add_handler(CommandHandler("start", start)) 
 app.add_handler(CallbackQueryHandler(button))
 app.add_handler(MessageHandler(filters.ALL, messageHandler))
 
