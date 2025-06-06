@@ -12,7 +12,7 @@ import pytz
 kyc = "👨‍💻 Xác minh KYC"
 uytin = "💎 DS Uy tín"
 
-domain = "https://api.chootc.com"
+domain = "https://muabanusdt.xyz"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     buttons = [[KeyboardButton(uytin)]]
